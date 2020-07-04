@@ -3,14 +3,14 @@ using System.Windows.Forms;
 
 namespace WinCalculator
 {
-    public partial class Form1 : Form
+    public partial class Calculator : Form
     {
         bool firstRun = true;
         double result = 0;
         string operation = "+";
         bool clear;
 
-        public Form1()
+        public Calculator()
         {
             InitializeComponent();
         }

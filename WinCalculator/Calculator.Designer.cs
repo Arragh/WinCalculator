@@ -1,6 +1,6 @@
 ﻿namespace WinCalculator
 {
-    partial class Form1
+    partial class Calculator
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -358,7 +358,7 @@
             this.buttonBackspace.Text = "⌫";
             this.buttonBackspace.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -389,7 +389,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "Calculator";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
