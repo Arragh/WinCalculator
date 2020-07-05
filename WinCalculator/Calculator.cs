@@ -6,19 +6,17 @@ namespace WinCalculator
     public partial class Calculator : Form
     {
         bool firstRun = true;
+        bool clear;
+        bool resultClick = false;
         double result = 0;
         string operation = "+";
-        bool clear;
-
+        
         public Calculator()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
+        private void Form1_Load(object sender, EventArgs e) { }
 
         // Обработчик нажатия на кнопку цифры
         private void ButtonNumber(Button button)
@@ -39,7 +37,7 @@ namespace WinCalculator
         // Обработчик нажатия на кнопку математической операции
         private void ButtonOperation(string op)
         {
-
+            resultClick = true;
             switch (operation)
             {
                 case "+":
@@ -86,7 +84,7 @@ namespace WinCalculator
                     textBox1.Text = result.ToString();
                     break;
                 case "²":
-                    textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString(); ;
+                    textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString();
                     break;
                 case "√":
                     textBox1.Text = Math.Sqrt(Convert.ToDouble(textBox1.Text)).ToString();
@@ -97,7 +95,6 @@ namespace WinCalculator
                     break;
                 default:break;
             }
-
             clear = true;
         }
 
@@ -107,52 +104,42 @@ namespace WinCalculator
         {
             ButtonNumber(button1);
         }
-
         private void button2_Click(object sender, EventArgs e)
         {
             ButtonNumber(button2);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             ButtonNumber(button3);
         }
-
         private void button4_Click(object sender, EventArgs e)
         {
             ButtonNumber(button4);
         }
-
         private void button5_Click(object sender, EventArgs e)
         {
             ButtonNumber(button5);
         }
-
         private void button6_Click(object sender, EventArgs e)
         {
             ButtonNumber(button6);
         }
-
         private void button7_Click(object sender, EventArgs e)
         {
             ButtonNumber(button7);
         }
-
         private void button8_Click(object sender, EventArgs e)
         {
             ButtonNumber(button8);
         }
-
         private void button9_Click(object sender, EventArgs e)
         {
             ButtonNumber(button9);
         }
-
         private void button10_Click(object sender, EventArgs e)
         {
             ButtonNumber(button0);
         }
-
         private void buttonDoDouble_Click(object sender, EventArgs e) // Запятая (дробное число)
         {
             ButtonNumber(buttonDoDouble);
@@ -165,37 +152,30 @@ namespace WinCalculator
         {
             ButtonOperation("+");
         }
-
         private void buttonMinus_Click(object sender, EventArgs e)
         {
             ButtonOperation("-");
         }
-
         private void buttonMultiply_Click(object sender, EventArgs e)
         {
             ButtonOperation("*");
         }
-
         private void buttonDivide_Click(object sender, EventArgs e)
         {
             ButtonOperation("÷");
         }
-
         private void buttonResult_Click(object sender, EventArgs e)
         {
             ButtonOperation("=");
         }
-
         private void buttonSqr_Click(object sender, EventArgs e)
         {
             ButtonOperation("²");
         }
-
         private void buttonSqrt_Click(object sender, EventArgs e)
         {
             ButtonOperation("√");
         }
-
         private void buttonDivideNumber_Click(object sender, EventArgs e)
         {
             ButtonOperation("1/");
@@ -208,22 +188,36 @@ namespace WinCalculator
         private void buttonC_Click(object sender, EventArgs e)
         {
             textBox1.Text = "0";
-            textBox2.Text = "0";
+            textBox2.Text = "";
             firstRun = true;
+            resultClick = false; ;
             result = 0;
             operation = "+";
         }
-
         private void buttonCE_Click(object sender, EventArgs e)
         {
+            resultClick = false;
             textBox1.Text = "0";
         }
-
         private void buttonNegate_Click(object sender, EventArgs e)
         {
             result = -1 * Convert.ToDouble(textBox1.Text);
             textBox2.Text += "negate(" + textBox1.Text + ") ";
             textBox1.Text = result.ToString();
+        }
+        private void buttonBackspace_Click(object sender, EventArgs e)
+        {
+            if (!resultClick)
+            {
+                if (textBox1.Text.Length > 0)
+                {
+                    textBox1.Text = textBox1.Text.Remove(textBox1.Text.Length - 1);
+                }
+                if (textBox1.Text == "")
+                {
+                    textBox1.Text = "0";
+                }
+            }
         }
         #endregion
     }

@@ -366,6 +366,7 @@
             this.buttonBackspace.TabIndex = 25;
             this.buttonBackspace.Text = "⌫";
             this.buttonBackspace.UseVisualStyleBackColor = true;
+            this.buttonBackspace.Click += new System.EventHandler(this.buttonBackspace_Click);
             // 
             // Calculator
             // 
