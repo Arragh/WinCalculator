@@ -60,7 +60,15 @@ namespace WinCalculator
             {
                 textBox1.Text = result.ToString();
             }
-            
+            if (operation == "sqr")
+            {
+                textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString();
+            }
+            if (operation == "sqrt")
+            {
+                textBox1.Text = Math.Sqrt(Convert.ToDouble(textBox1.Text)).ToString();
+            }
+
             clear = true;
         }
 
@@ -114,6 +122,11 @@ namespace WinCalculator
         {
             ButtonNumber(button0);
         }
+
+        private void buttonDoDouble_Click(object sender, EventArgs e)
+        {
+            ButtonNumber(buttonDoDouble);
+        }
         #endregion
 
         #region Operations
@@ -141,6 +154,17 @@ namespace WinCalculator
         {
             ButtonOperation("=");
         }
+
+        private void buttonSqr_Click(object sender, EventArgs e)
+        {
+            ButtonOperation("sqr");
+        }
+
+        private void buttonSqrt_Click(object sender, EventArgs e)
+        {
+            ButtonOperation("sqrt");
+        }
+
         #endregion
     }
 }
