@@ -49,7 +49,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.buttonSqrt = new System.Windows.Forms.Button();
             this.buttonSqr = new System.Windows.Forms.Button();
-            this.button14 = new System.Windows.Forms.Button();
+            this.buttonDivideNumber = new System.Windows.Forms.Button();
             this.buttonPercent = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
             this.buttonC = new System.Windows.Forms.Button();
@@ -308,16 +308,17 @@
             this.buttonSqr.UseVisualStyleBackColor = true;
             this.buttonSqr.Click += new System.EventHandler(this.buttonSqr_Click);
             // 
-            // button14
+            // buttonDivideNumber
             // 
-            this.button14.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button14.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button14.Location = new System.Drawing.Point(6, 140);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(76, 52);
-            this.button14.TabIndex = 21;
-            this.button14.Text = "⅟x";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonDivideNumber.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonDivideNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonDivideNumber.Location = new System.Drawing.Point(6, 140);
+            this.buttonDivideNumber.Name = "buttonDivideNumber";
+            this.buttonDivideNumber.Size = new System.Drawing.Size(76, 52);
+            this.buttonDivideNumber.TabIndex = 21;
+            this.buttonDivideNumber.Text = "⅟x";
+            this.buttonDivideNumber.UseVisualStyleBackColor = true;
+            this.buttonDivideNumber.Click += new System.EventHandler(this.buttonDivideNumber_Click);
             // 
             // buttonPercent
             // 
@@ -340,6 +341,7 @@
             this.buttonCE.TabIndex = 23;
             this.buttonCE.Text = "CE";
             this.buttonCE.UseVisualStyleBackColor = true;
+            this.buttonCE.Click += new System.EventHandler(this.buttonCE_Click);
             // 
             // buttonC
             // 
@@ -351,6 +353,7 @@
             this.buttonC.TabIndex = 24;
             this.buttonC.Text = "C";
             this.buttonC.UseVisualStyleBackColor = true;
+            this.buttonC.Click += new System.EventHandler(this.buttonC_Click);
             // 
             // buttonBackspace
             // 
@@ -372,7 +375,7 @@
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonCE);
             this.Controls.Add(this.buttonPercent);
-            this.Controls.Add(this.button14);
+            this.Controls.Add(this.buttonDivideNumber);
             this.Controls.Add(this.buttonSqr);
             this.Controls.Add(this.buttonSqrt);
             this.Controls.Add(this.textBox2);
@@ -426,7 +429,7 @@
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button buttonSqrt;
         private System.Windows.Forms.Button buttonSqr;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button buttonDivideNumber;
         private System.Windows.Forms.Button buttonPercent;
         private System.Windows.Forms.Button buttonCE;
         private System.Windows.Forms.Button buttonC;

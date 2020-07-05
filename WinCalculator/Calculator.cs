@@ -54,19 +54,39 @@ namespace WinCalculator
             }
 
             operation = op;
-            textBox2.Text += textBox1.Text + " " + operation + " ";
+            if (operation == "²")
+            {
+                textBox2.Text += "(" + textBox1.Text + ")" + operation + " ";
+            }
+            else if(operation == "√")
+            {
+                textBox2.Text += operation + "(" + textBox1.Text + ") ";
+            }
+            else if (operation == "1/")
+            {
+                textBox2.Text += operation + "(" + textBox1.Text + ") ";
+            }
+            else
+            {
+                textBox2.Text += textBox1.Text + " " + operation + " ";
+            }
 
             if (operation == "=")
             {
                 textBox1.Text = result.ToString();
             }
-            if (operation == "sqr")
+            if (operation == "²")
             {
                 textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString();
             }
-            if (operation == "sqrt")
+            if (operation == "√")
             {
                 textBox1.Text = Math.Sqrt(Convert.ToDouble(textBox1.Text)).ToString();
+            }
+            if (operation == "1/")
+            {
+                result = 1/Convert.ToDouble(textBox1.Text);
+                textBox1.Text = result.ToString();
             }
 
             clear = true;
@@ -157,14 +177,33 @@ namespace WinCalculator
 
         private void buttonSqr_Click(object sender, EventArgs e)
         {
-            ButtonOperation("sqr");
+            ButtonOperation("²");
         }
 
         private void buttonSqrt_Click(object sender, EventArgs e)
         {
-            ButtonOperation("sqrt");
+            ButtonOperation("√");
+        }
+
+        private void buttonDivideNumber_Click(object sender, EventArgs e)
+        {
+            ButtonOperation("1/");
         }
 
         #endregion
+
+        private void buttonC_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+            textBox2.Text = "0";
+            firstRun = true;
+            result = 0;
+            operation = "+";
+        }
+
+        private void buttonCE_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "0";
+        }
     }
 }
