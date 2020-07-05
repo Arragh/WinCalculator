@@ -38,7 +38,7 @@
             this.button8 = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
             this.button0 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
+            this.buttonNegate = new System.Windows.Forms.Button();
             this.buttonDoDouble = new System.Windows.Forms.Button();
             this.buttonPlus = new System.Windows.Forms.Button();
             this.buttonMinus = new System.Windows.Forms.Button();
@@ -176,16 +176,17 @@
             this.button0.UseVisualStyleBackColor = true;
             this.button0.Click += new System.EventHandler(this.button10_Click);
             // 
-            // button11
+            // buttonNegate
             // 
-            this.button11.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button11.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button11.Location = new System.Drawing.Point(6, 372);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(76, 52);
-            this.button11.TabIndex = 10;
-            this.button11.Text = "+/-";
-            this.button11.UseVisualStyleBackColor = true;
+            this.buttonNegate.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.buttonNegate.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.buttonNegate.Location = new System.Drawing.Point(6, 372);
+            this.buttonNegate.Name = "buttonNegate";
+            this.buttonNegate.Size = new System.Drawing.Size(76, 52);
+            this.buttonNegate.TabIndex = 10;
+            this.buttonNegate.Text = "+/-";
+            this.buttonNegate.UseVisualStyleBackColor = true;
+            this.buttonNegate.Click += new System.EventHandler(this.buttonNegate_Click);
             // 
             // buttonDoDouble
             // 
@@ -386,7 +387,7 @@
             this.Controls.Add(this.buttonMinus);
             this.Controls.Add(this.buttonPlus);
             this.Controls.Add(this.buttonDoDouble);
-            this.Controls.Add(this.button11);
+            this.Controls.Add(this.buttonNegate);
             this.Controls.Add(this.button0);
             this.Controls.Add(this.button9);
             this.Controls.Add(this.button8);
@@ -418,7 +419,7 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button button0;
-        private System.Windows.Forms.Button button11;
+        private System.Windows.Forms.Button buttonNegate;
         private System.Windows.Forms.Button buttonDoDouble;
         private System.Windows.Forms.Button buttonPlus;
         private System.Windows.Forms.Button buttonMinus;

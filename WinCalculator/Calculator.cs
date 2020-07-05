@@ -20,6 +20,7 @@ namespace WinCalculator
 
         }
 
+        // Обработчик нажатия на кнопку цифры
         private void ButtonNumber(Button button)
         {
             if (firstRun)
@@ -34,64 +35,73 @@ namespace WinCalculator
             }
             textBox1.Text += button.Text;
         }
+
+        // Обработчик нажатия на кнопку математической операции
         private void ButtonOperation(string op)
         {
-            if (operation == "+")
+
+            switch (operation)
             {
-                result += Convert.ToDouble(textBox1.Text);
-            }
-            if (operation == "-")
-            {
-                result -= Convert.ToDouble(textBox1.Text);
-            }
-            if (operation == "*")
-            {
-                result *= Convert.ToDouble(textBox1.Text);
-            }
-            if (operation == "÷")
-            {
-                result /= Convert.ToDouble(textBox1.Text);
+                case "+":
+                    result += Convert.ToDouble(textBox1.Text);
+                    break;
+                case "-":
+                    result -= Convert.ToDouble(textBox1.Text);
+                    break;
+                case "*":
+                    result *= Convert.ToDouble(textBox1.Text);
+                    break;
+                case "÷":
+                    result /= Convert.ToDouble(textBox1.Text);
+                    break;
+                default:break;
             }
 
+            // Запоминаем следующую операцию. Если она +, -, * или ÷, то при нажати кнопки цикл начнется сначала
             operation = op;
-            if (operation == "²")
+
+            // Далее идут операции, которые сразу выводят результат в textBox1
+            switch (operation)
             {
-                textBox2.Text += "(" + textBox1.Text + ")" + operation + " ";
-            }
-            else if(operation == "√")
-            {
-                textBox2.Text += operation + "(" + textBox1.Text + ") ";
-            }
-            else if (operation == "1/")
-            {
-                textBox2.Text += operation + "(" + textBox1.Text + ") ";
-            }
-            else
-            {
-                textBox2.Text += textBox1.Text + " " + operation + " ";
+                // Операции со специфическим выводом результата в textBox2
+                case "²":
+                    textBox2.Text += "(" + textBox1.Text + ")" + operation + " ";
+                    break;
+                case "√":
+                    textBox2.Text += operation + "(" + textBox1.Text + ") ";
+                    break;
+                case "1/":
+                    textBox2.Text += operation + "(" + textBox1.Text + ") ";
+                    break;
+                // Стандартный вывод информации в textBox2 для операций +, -, * или ÷
+                default:
+                    textBox2.Text += textBox1.Text + " " + operation + " ";
+                    break;
             }
 
-            if (operation == "=")
+            // Обработка специфических команд и вывода информации в textBox1
+            switch (operation)
             {
-                textBox1.Text = result.ToString();
-            }
-            if (operation == "²")
-            {
-                textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString();
-            }
-            if (operation == "√")
-            {
-                textBox1.Text = Math.Sqrt(Convert.ToDouble(textBox1.Text)).ToString();
-            }
-            if (operation == "1/")
-            {
-                result = 1/Convert.ToDouble(textBox1.Text);
-                textBox1.Text = result.ToString();
+                case "=":
+                    textBox1.Text = result.ToString();
+                    break;
+                case "²":
+                    textBox1.Text = Math.Pow(Convert.ToDouble(textBox1.Text), 2).ToString(); ;
+                    break;
+                case "√":
+                    textBox1.Text = Math.Sqrt(Convert.ToDouble(textBox1.Text)).ToString();
+                    break;
+                case "1/":
+                    result = 1 / Convert.ToDouble(textBox1.Text);
+                    textBox1.Text = result.ToString();
+                    break;
+                default:break;
             }
 
             clear = true;
         }
 
+        // Кнопки цифр и запятая
         #region Numbers
         private void button1_Click(object sender, EventArgs e)
         {
@@ -143,12 +153,13 @@ namespace WinCalculator
             ButtonNumber(button0);
         }
 
-        private void buttonDoDouble_Click(object sender, EventArgs e)
+        private void buttonDoDouble_Click(object sender, EventArgs e) // Запятая (дробное число)
         {
             ButtonNumber(buttonDoDouble);
         }
         #endregion
 
+        // Кнопки математических операций
         #region Operations
         private void buttonPlus_Click(object sender, EventArgs e)
         {
@@ -192,6 +203,8 @@ namespace WinCalculator
 
         #endregion
 
+        // Остальные кнопки
+        #region OtherButtons
         private void buttonC_Click(object sender, EventArgs e)
         {
             textBox1.Text = "0";
@@ -205,5 +218,13 @@ namespace WinCalculator
         {
             textBox1.Text = "0";
         }
+
+        private void buttonNegate_Click(object sender, EventArgs e)
+        {
+            result = -1 * Convert.ToDouble(textBox1.Text);
+            textBox2.Text += "negate(" + textBox1.Text + ") ";
+            textBox1.Text = result.ToString();
+        }
+        #endregion
     }
 }
