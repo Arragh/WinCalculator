@@ -5,11 +5,11 @@ namespace WinCalculator
 {
     public partial class Calculator : Form
     {
-        bool firstRun = true;
-        bool clear;
-        bool resultClick = false;
-        double result = 0;
-        string operation = "+";
+        bool firstRun = true; // Обозначает первый запуск программы либо после нажатия кнопки CE
+        bool clear; // Показывает, можно ли стереть данные из поля textBox1 при нажатии кнопки
+        bool resultClick = false; // Была ли нажата кнопка математической операции
+        double result = 0; // Сохраняет промежуточный результат после каждой математической операции
+        string operation = "+"; // Запоминает последнюю нажатую кнопку математической операции. По умолчанию +
         
         public Calculator()
         {
@@ -183,7 +183,7 @@ namespace WinCalculator
 
         #endregion
 
-        // Остальные кнопки
+        // Специальные кнопки
         #region OtherButtons
         private void buttonC_Click(object sender, EventArgs e)
         {
