@@ -50,7 +50,6 @@
             this.buttonSqrt = new System.Windows.Forms.Button();
             this.buttonSqr = new System.Windows.Forms.Button();
             this.buttonDivideNumber = new System.Windows.Forms.Button();
-            this.buttonPercent = new System.Windows.Forms.Button();
             this.buttonCE = new System.Windows.Forms.Button();
             this.buttonC = new System.Windows.Forms.Button();
             this.buttonBackspace = new System.Windows.Forms.Button();
@@ -321,17 +320,6 @@
             this.buttonDivideNumber.UseVisualStyleBackColor = true;
             this.buttonDivideNumber.Click += new System.EventHandler(this.buttonDivideNumber_Click);
             // 
-            // buttonPercent
-            // 
-            this.buttonPercent.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.buttonPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonPercent.Location = new System.Drawing.Point(6, 82);
-            this.buttonPercent.Name = "buttonPercent";
-            this.buttonPercent.Size = new System.Drawing.Size(76, 52);
-            this.buttonPercent.TabIndex = 22;
-            this.buttonPercent.Text = "%";
-            this.buttonPercent.UseVisualStyleBackColor = true;
-            // 
             // buttonCE
             // 
             this.buttonCE.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -376,7 +364,6 @@
             this.Controls.Add(this.buttonBackspace);
             this.Controls.Add(this.buttonC);
             this.Controls.Add(this.buttonCE);
-            this.Controls.Add(this.buttonPercent);
             this.Controls.Add(this.buttonDivideNumber);
             this.Controls.Add(this.buttonSqr);
             this.Controls.Add(this.buttonSqrt);
@@ -432,7 +419,6 @@
         private System.Windows.Forms.Button buttonSqrt;
         private System.Windows.Forms.Button buttonSqr;
         private System.Windows.Forms.Button buttonDivideNumber;
-        private System.Windows.Forms.Button buttonPercent;
         private System.Windows.Forms.Button buttonCE;
         private System.Windows.Forms.Button buttonC;
         private System.Windows.Forms.Button buttonBackspace;
